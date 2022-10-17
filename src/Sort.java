@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 /**
  * Simple sorting algorithms and their performance
- * Reg:
- *
+ * Reg:E/18/168
+ * Karan R
  */
 
 public class Sort {
@@ -69,9 +69,8 @@ public class Sort {
             for(int j=0;j<data.length-1;j++){
                 //swapping the element if its greaterthan next element
                 if (data[j]>data[j+1]) {
-                    int temp =data[j];
-                    data[j]=data[j+1];
-                    data[j+1]=temp;
+                    swap(data,j,j+1);
+
 
                 }
 
@@ -95,14 +94,27 @@ public class Sort {
 
            }
            // swap the minimum elemnt to i and swap the i to minmimum index element
-        int temp =data[minimumIndex];
-           data[minimumIndex]=data[i];
-           data[i]=temp;
+           swap(data,minimumIndex,i);
+
        }
     }
-
     static void insertion_sort(int [] data) {
-        // Implement
+        //static method - calling the function  without creatio of object
+        //traverse the unsortted array
+        for (int i=0;i<data.length;i++){
+            //move the lement to forward until it is greaterthan to prevoius one
+            //make a loop
+    for (int j=i; j>0;j--){
+        if(data[j]< data[j-1] ){
+            //swappin  the functions
+            swap(data,j,j-1);
+
+
+        }
+        else break;
+    }
+}
+
     }
 
 
@@ -119,7 +131,7 @@ public class Sort {
 
         int [] arr=create_rand_data(10);
         display(arr);
-        selection_sort(arr);
+        insertion_sort(arr);
         display(arr);
         System.out.println(Arrays.toString(arr));
     }
