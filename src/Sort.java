@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Simple sorting algorithms and their performance
  * Reg:
@@ -61,21 +63,42 @@ public class Sort {
      *     Implementation of sorting algorithms               *
      *********************************************************/
     static void buble_sort(int [] data)  {
+        // traverse unsorted array
         for (int i=0; i<data.length-1;i++){
+
             for(int j=0;j<data.length-1;j++){
+                //swapping the element if its greaterthan next element
                 if (data[j]>data[j+1]) {
                     int temp =data[j];
                     data[j]=data[j+1];
                     data[j+1]=temp;
 
                 }
-                else continue;
+
             }
         }
     }
 
     static void selection_sort(int [] data) {
-        // Implement
+//static method - calling the function  without creatio of object
+
+
+       for (int i=0; i<data.length;i++){
+           int smallNumber=data[i]; //save the minimum value
+           int minimumIndex=i; //store the minmmum index  for swapping purpose with i
+           for (int j=i; j<data.length;j++){
+               if(smallNumber>data[j]){
+                   smallNumber=data[j];
+                   minimumIndex=j;
+               }
+
+
+           }
+           // swap the minimum elemnt to i and swap the i to minmimum index element
+        int temp =data[minimumIndex];
+           data[minimumIndex]=data[i];
+           data[i]=temp;
+       }
     }
 
     static void insertion_sort(int [] data) {
@@ -96,7 +119,8 @@ public class Sort {
 
         int [] arr=create_rand_data(10);
         display(arr);
-        buble_sort(arr);
+        selection_sort(arr);
         display(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
