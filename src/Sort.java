@@ -136,7 +136,7 @@ static HashMap<Integer,Long> get_execution_time_with_lenght(char algo,char algoc
     for(int j=10000; j<=50000;j+=2000){
 
 if(algocase=='w'){
-    long startTime = System.nanoTime();
+    long startTime = System.nanoTime(); //start time
     if(algo=='s'){
         selection_sort(create_worst_data(j));
     } else if (algo=='i') {
@@ -205,6 +205,9 @@ static void output_file_creator(File file,HashMap hashMap) throws FileNotFoundEx
 
 
 
+
+/*
+
 static   HashMap<Integer,Long> get_execution_time_with_lenght_for_AverageCases(char algo,char algocase){
     HashMap<Integer, Long> newmap =new HashMap<>() ;
 
@@ -242,6 +245,8 @@ static   HashMap<Integer,Long> get_execution_time_with_lenght_for_AverageCases(c
 
 
 }
+*/
+
 
 
     public static void main(String [] args) throws FileNotFoundException {
@@ -285,14 +290,7 @@ static   HashMap<Integer,Long> get_execution_time_with_lenght_for_AverageCases(c
         System.out.println();
         System.out.println();
 
-        System.out.println(" /**********************************************************");
-        System.out.println("Average  analysis for selection sort");
-        HashMap<Integer,Long> newselectionSortForAverageCase = get_execution_time_with_lenght_for_AverageCases('s','a');
-        File output11=new File("newaveragecaseforselectionsort.csv");
-        output_file_creator(output11,selectionSortForAverageCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
+   ;
 
 
 
