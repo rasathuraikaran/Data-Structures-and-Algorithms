@@ -18,20 +18,26 @@ class Result {
     public static List<Integer> gradingStudents(List<Integer> grades) {
         // Write your code here
         for(int i=0;i<grades.size();i++){
+            //grades less than 38 assign  contnue
             if(grades.get(i)<38){
-                grades.set(i, grades.get(i));
+                continue;
+                //no need operations so continue
 
                 // grades[i]=grades[i];
             }
             else{
+                //finding the remainder
                 int    remainder=grades.get(i)%5;
+                //finding the diffrence between the multiple of nearest 5 and grades
+
                 int value=5-remainder;
                 if(value<3){
-                    grades.set(i, grades.get(i)+value);
+                    grades.set(i, grades.get(i)+value);//update the new grade
 
                 }
                 else{
-                    grades.set(i, grades.get(i));
+                    continue;
+                    //no need operations so continue
                 }
             }
         }
