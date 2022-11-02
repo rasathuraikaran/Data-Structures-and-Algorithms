@@ -71,41 +71,40 @@ public class Sort {
     /**********************************************************
      *     Implementation of sorting algorithms               *
      *********************************************************/
-    static void buble_sort(int [] data)  {
+    static void buble_sort(int [] arr)  {
         // traverse unsorted array
-        for (int i=0; i<data.length-1;i++){
-
-            for(int j=0;j<data.length-1;j++){
-                //swapping the element if its greaterthan next element
-                if (data[j]>data[j+1]) {
-                    swap(data,j,j+1);
-
-
+        int n = arr.length;
+        int temp = 0;
+        for(int i=0; i < n; i++){
+            for(int j=1; j < (n-i); j++){
+                if(arr[j-1] > arr[j]){
+                    //swap elements
+                    temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
                 }
 
             }
         }
+
     }
 
-    static void selection_sort(int [] data) {
+    static void selection_sort(int [] arr) {
 //static method - calling the function  without creatio of object
 
 
-       for (int i=0; i<data.length;i++){
-           int smallNumber=data[i]; //save the minimum value
-           int minimumIndex=i; //store the minmmum index  for swapping purpose with i
-           for (int j=i; j<data.length;j++){
-               if(smallNumber>data[j]){
-                   smallNumber=data[j];
-                   minimumIndex=j;
-               }
-
-
-           }
-           // swap the minimum elemnt to i and swap the i to minmimum index element
-           swap(data,minimumIndex,i);
-
-       }
+        for (int i = 0; i < arr.length - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < arr.length; j++){
+                if (arr[j] < arr[index]){
+                    index = j;//searching for lowest index
+                }
+            }
+            int smallerNumber = arr[index];
+            arr[index] = arr[i];
+            arr[i] = smallerNumber;
+        }
     }
     static void insertion_sort(int [] data) {
         //static method - calling the function  without creatio of object
@@ -251,6 +250,96 @@ static   HashMap<Integer,Long> get_execution_time_with_lenght_for_AverageCases(c
 
     public static void main(String [] args) throws FileNotFoundException {
 
+
+
+
+
+
+
+
+
+
+
+        /**********************************************************
+         *     Implementation of insertion  sort              *
+         *********************************************************/
+
+        System.out.println(" /**********************************************************");
+        System.out.println("worst case analysis for insertion sort");
+        HashMap<Integer,Long> insertionSortForWorstCase = get_execution_time_with_lenght('i','w');
+        File output3=new File("worstcaseforinsertionsort.csv");
+        output_file_creator(output3,insertionSortForWorstCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+
+        System.out.println(" /**********************************************************");
+        System.out.println("best case analysis for insertion sort");
+        HashMap<Integer,Long> insertionSortForBestCase = get_execution_time_with_lenght('i','b');
+        File output4=new File("bestcaseforinsertionsort.csv");
+        output_file_creator(output4,insertionSortForBestCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+        System.out.println(" /**********************************************************");
+        System.out.println("Average  analysis for insertion sort");
+        HashMap<Integer,Long> insertionSortSortForAverageCase = get_execution_time_with_lenght('i','a');
+        File output8=new File("averagecaseforinsertionsort.csv");
+        output_file_creator(output8,insertionSortSortForAverageCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+
+
+
+        /**********************************************************
+         *     Implementation of bubble  sort              *
+         *********************************************************/
+        System.out.println(" /**********************************************************");
+        System.out.println("worst case analysis for bubbble sort");
+        HashMap<Integer,Long> bubbleSortForWorstCase = get_execution_time_with_lenght('b','w');
+        File output5=new File("worstcaseforbubblesort.csv");
+        output_file_creator(output5,bubbleSortForWorstCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+        System.out.println(" /**********************************************************");
+        System.out.println("best case analysis for bubble sort");
+        HashMap<Integer,Long> bubbleSortForBestCase = get_execution_time_with_lenght('b','b');
+        File output6=new File("bestcaseforbubblesort.csv");
+        output_file_creator(output6,bubbleSortForBestCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+
+        System.out.println(" /**********************************************************");
+        System.out.println("Average  analysis for bubble sort");
+        HashMap<Integer,Long> averagebubbleSortForAverageCase = get_execution_time_with_lenght('b','a');
+        File output9=new File("averagecaseforbubblesort.csv");
+        output_file_creator(output9,averagebubbleSortForAverageCase);
+        System.out.println(" /**********************************************************");
+        System.out.println();
+        System.out.println();
+
+
+
+
+
         /**********************************************************
          *     Implementation of selection sort              *
          *********************************************************/
@@ -289,93 +378,6 @@ static   HashMap<Integer,Long> get_execution_time_with_lenght_for_AverageCases(c
         System.out.println(" /**********************************************************");
         System.out.println();
         System.out.println();
-
-   ;
-
-
-
-
-
-
-
-
-        /**********************************************************
-         *     Implementation of insertion  sort              *
-         *********************************************************/
-
-        System.out.println(" /**********************************************************");
-        System.out.println("worst case analysis for insertion sort");
-        HashMap<Integer,Long> insertionSortForWorstCase = get_execution_time_with_lenght('i','w');
-        File output3=new File("worstcaseforinsertionsort.csv");
-        output_file_creator(output3,insertionSortForWorstCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-
-        System.out.println(" /**********************************************************");
-        System.out.println("best case analysis for insertion sort");
-        HashMap<Integer,Long> insertionSortForBestCase = get_execution_time_with_lenght('i','b');
-        File output4=new File("bestcaseforinsertionsort.csv");
-        output_file_creator(output4,insertionSortForBestCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-        System.out.println(" /**********************************************************");
-        System.out.println("Average  analysis for selection sort");
-        HashMap<Integer,Long> insertionSortSortForAverageCase = get_execution_time_with_lenght('s','a');
-        File output8=new File("averagecaseforselectionsort.csv");
-        output_file_creator(output8,selectionSortForAverageCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-        /**********************************************************
-         *     Implementation of bubble  sort              *
-         *********************************************************/
-        System.out.println(" /**********************************************************");
-        System.out.println("worst case analysis for bubbble sort");
-        HashMap<Integer,Long> bubbleSortForWorstCase = get_execution_time_with_lenght('b','w');
-        File output5=new File("worstcaseforbubblesort.csv");
-        output_file_creator(output5,insertionSortForWorstCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-        System.out.println(" /**********************************************************");
-        System.out.println("best case analysis for bubble sort");
-        HashMap<Integer,Long> bubbleSortForBestCase = get_execution_time_with_lenght('b','b');
-        File output6=new File("bestcaseforbubblesort.csv");
-        output_file_creator(output6,insertionSortForBestCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-
-        System.out.println(" /**********************************************************");
-        System.out.println("Average  analysis for bubble sort");
-        HashMap<Integer,Long> averageSortSortForAverageCase = get_execution_time_with_lenght('s','a');
-        File output9=new File("averagecaseforselectionsort.csv");
-        output_file_creator(output9,selectionSortForAverageCase);
-        System.out.println(" /**********************************************************");
-        System.out.println();
-        System.out.println();
-
-
-
-
-
 
 
 
