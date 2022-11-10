@@ -28,7 +28,8 @@ class Result {
         int count_of_notifications=0;
         int[] frequncy_arr=new int[201];
 
-        for(int i=0;i<d;i++){ //Get the frequency of each number
+        for(int i=0;i<d;i++){
+            //Get the frequency of each number
             frequncy_arr[expenditure.get(i)]=frequncy_arr[expenditure.get(i)]+1;
         }
 
@@ -37,7 +38,8 @@ class Result {
             int index_of_subarr=0;
             for(int i=0;i<201;i++){
                 int frequncy=frequncy_arr[i];
-                while(frequncy>0){  //get the array which store the current values which use to find median
+                while(frequncy>0){
+                    //get the array which store the current values which use to find median
                     sub_arr[index_of_subarr]=i;
                     frequncy--;
                     index_of_subarr++;
