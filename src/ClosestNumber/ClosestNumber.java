@@ -22,15 +22,16 @@ class Result {
      */
 
     public static List<Integer> closestNumbers(List<Integer> arr) {
-        Collections.sort(arr);
-        int minidifference=arr.get(1)-arr.get(0);
-        List<Integer> newarr=new ArrayList<Integer>();
+        Collections.sort(arr); // sort thee  array
+        int minidifference=arr.get(1)-arr.get(0); // set in itial minim value
+        List<Integer> newarr=new ArrayList<Integer>();// create a list
         for(int i=2;i<arr.size();i++){
-            if(minidifference>arr.get(i)-arr.get(i-1))minidifference=arr.get(i)-arr.get(i-1);
+            if(minidifference>arr.get(i)-arr.get(i-1))minidifference=arr.get(i)-arr.get(i-1); //check the minimum value
         }
 
         for(int i=1;i<arr.size();i++){
             if(minidifference==arr.get(i)-arr.get(i-1)){
+                //add in to array
                 newarr.add(arr.get(i-1)) ;
                 newarr.add(arr.get(i)) ;
             }

@@ -1,4 +1,5 @@
 package LillysHomework;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -47,30 +48,39 @@ class Result {
             hashmap1.put(arr.get(i),i);
         }
         for(int i=0;i<list1.size();i++){
+            //the elemnt in assending order check the arr in correct position if not then go to if condition
             if(arr.get(i)!=list1.get(i)){
+                //swap the value  as well as in arr
                 Integer temp = arr.get(i);
                 arr.set(i,arr.get(hashmap1.get(list1.get(i))));
                 arr.set(hashmap1.get(list1.get(i)),temp);
                 hashmap1.put(temp,hashmap1.get(list1.get(i)));
+
+                // increamnet the count
                 count1++;
             }
         }
 
         int count2 = 0;
-        Collections.sort(list1,Collections.reverseOrder());
+        Collections.sort(list1,Collections.reverseOrder());// sort the list  as dessending  order
+        //insert a key and values key as arr get(i) and value as i
         for(int i=0;i<arr.size();i++){
             hashmap2.put(list2.get(i),i);
         }
         for(int i=0;i<list1.size();i++){
+            //the elemnt in desending  order check the arr in correct position if not then go to if condition
+
             if(list2.get(i)!=list1.get(i)){
+                //swap the value  as well as in arr
                 Integer temp = list2.get(i);
                 list2.set(i,list2.get(hashmap1.get(list1.get(i))));
                 list2.set(hashmap2.get(list1.get(i)),temp);
                 hashmap2.put(temp,hashmap2.get(list1.get(i)));
+                // increamnet the count
                 count2++;
             }
         }
-
+        // return whether count 1 or count2 is minimum
         return Math.min(count1,count2);
 
 
@@ -79,7 +89,7 @@ class Result {
 
 }
 
-public class  LillyHomeWork {
+public class LillyHomeWork {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -99,5 +109,3 @@ public class  LillyHomeWork {
         bufferedWriter.close();
     }
 }
-
-
