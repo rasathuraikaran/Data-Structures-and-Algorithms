@@ -1,5 +1,7 @@
 package Lab6;
 
+import Hashing.Entry;
+
 import java.util.Arrays;
 
 public class HashTable {
@@ -51,11 +53,11 @@ public class HashTable {
         int hash1=myhash1(key);
         int i=1;
         while(list[hash1]!=null){
-            if(list[i].getKey()==key){
+            if(list[hash1].getKey()==key){
                 System.out.println("key "+key+" already exists\n");
                 return;
             }
-            hash1=(hash1+myhash2(key,i))%HASH_TABLE_SIZE;
+            hash1=myhash2(key,i);
             i=i+1;
         }
        list[hash1]=new ValueEntry(key, value);
@@ -67,6 +69,19 @@ public class HashTable {
     ){
         return key%HASH_TABLE_SIZE;
 
+    }
+
+
+    public String get(int key) {
+        int hash_var1=myhash1(key);
+        ValueEntry readinsert=list[hash_var1];
+        int i=1;
+        while(readinsert!=null && !(readinsert.getKey()==key)) {
+            hash_var1=myhash2(key,i);
+            i=i+1;
+            readinsert=list[hash_var1];
+        }
+        return list[hash_var1].getValue();
     }
 
     private int myhash2 (int key,int i){
