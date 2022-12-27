@@ -103,8 +103,7 @@ public class AVL {
     public void  inOrder(Node root){
         if(root!=null){
             inOrder(root.left);
-            System.out.println(root.key+" height is "+ root.height);
-            inOrder(root.right);
+            System.out.print(root.key+" ");             inOrder(root.right);
         }
     }
     public Node insert(Node node, int val) {
@@ -265,6 +264,25 @@ public class AVL {
         return current;
     }
 
+
+    private void preOrder(Node node){                          // ordering the tree in pre order method take the node
+        if(node!=null){                                        // the node is not null
+            System.out.print(node.key+" ");                    // print the node value
+            preOrder(node.left);                               // then print the left child value
+            preOrder(node.right);                              // then print the right child value
+        }
+    }
+
+
+    // ordering the tree in the post order mehod
+    private void postOrder(Node node){                // take the mode
+        if(node!=null){
+            postOrder(node.left);                     // first go to the left child and print
+            postOrder(node.right);                    // then go to the left child and print
+            System.out.print(node.key+" ");           // print the parent
+
+        }
+    }
     public static void main(String args[]) {
 
         AVL avl = new AVL(50);
@@ -278,15 +296,34 @@ public class AVL {
 
         avl.root= avl.deleteNode(avl.root,20);
         System.out.println();
+        System.out.println()
+        ;
+        System.out.println();
+        System.out.println();
         System.out.println("deletion the value 20  is in the AVL treee");
         avl.inOrder(avl.root);
         //System.out.println(root.key);
+        System.out.println();
+        System.out.println();
+        System.out.println();
         System.out.println("Searching the value 50 is in the AVL treee");
       Node searchExample1= avl.find(50);
         System.out.println();
 
         System.out.println("Searching the deleted  value 20  is in the AVL treee or not ");
         Node searchExample2= avl.find(20);
+
+        System.out.println();
+
+        System.out.println("\n\n=========== ordering the tree ========");
+        System.out.print("Pre order  : ");
+        avl.preOrder(avl.root);
+
+        System.out.print("\nIn order   : ");
+        avl.inOrder(avl.root);
+
+        System.out.print("\nPost order : ");
+        avl.postOrder(avl.root);
 
     }
 
