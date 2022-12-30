@@ -283,6 +283,9 @@ public class AVL {
 
         }
     }
+
+
+
     public static void main(String args[]) {
 
         AVL avl = new AVL(50);
